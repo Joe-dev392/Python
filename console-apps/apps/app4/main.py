@@ -23,6 +23,13 @@ class Library:
         self.books.append(bookName)
         print(f"Book \"{bookName}\" added successfully")
 
+    def deleteBook(self, bookName):
+        self.books.remove(bookName)
+        if bookName not in self.books:
+            print(f"{bookName} is unavailable in our library")
+        else:
+            print(f"{bookName} deleted successfully")
+
 
 
 
@@ -45,6 +52,17 @@ class Person():
         self.books = input("Please enter book name ")
         return self.books
 
+    def addBook(self):
+        print("A donated new book")
+        self.books = input("Please enter book name ")
+        return self.books
+
+    def removeBook(self):
+        print("Remove a book ")
+        self.books = input("Please enter book name ")
+        return self.books
+
+
 if __name__ == '__main__':
     wuseLibrary = Library(['General Maths', 'Programming Fundemantals', 'Ikemefuna'])
     individual = Person()
@@ -53,7 +71,7 @@ if __name__ == '__main__':
     print("<======== Wuse Digital Libraary ========>")
     print("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
     print("\nWelcome user, what would you like to accomplish today?")
-    print("\n1. View Book List \n2. Check out a book \n3. Add a new book \n4. Check in a book \n5. Track book(s) \n6. Quit")
+    print("\n1. View Book List \n2. Check out a book \n3. Add a new book \n4. Check in a book \n5. Track book(s) \n6. Delete book \n7. Quit")
 
     while True:
         try:
@@ -75,6 +93,9 @@ if __name__ == '__main__':
                 if len(trackList) == 0:
                     print("No book has been borrowed")
             elif action == 6:
+                wuseLibrary.deleteBook(individual.removeBook)
+
+            elif action == 7:
                 print("Thanks for showing me love")
                 exit()
 
